@@ -3,7 +3,6 @@ Hi👋! Welcome to my very first cli data project🎉! This app provides a CLI t
 
 # Structure
 The structure of this project looks roughly like the following:
-
 └── bin
     └── run
 └── lib
@@ -14,6 +13,7 @@ The structure of this project looks roughly like the following:
 ├── Gemfile.lock
 ├── README.md
 ├── environment.rb
+
 
 # Installation
 $ bundle install
