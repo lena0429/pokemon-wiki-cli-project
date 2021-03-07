@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+Bundler.require
+
+require_relative '../environment.rb'
+
+Cli.logo
+
+puts "Welcome to Pokemon Wiki App~!".colorize(:magenta)
+
+Cli.new.start
