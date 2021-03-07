@@ -1,20 +1,6 @@
 # pokemon-wiki-cli-project
 Hi👋! Welcome to my very first cli data project🎉! This app provides a CLI to review the information of 20 pokemons including their names, heights, moves, etc.
 
-# Structure
-The structure of this project looks roughly like the following:
-└── bin
-    └── run
-└── lib
-    └── api.rb
-    └── cli.rb
-    └── pokemon.rb
-├── Gemfile
-├── Gemfile.lock
-├── README.md
-├── environment.rb
-
-
 # Installation
 $ bundle install
 
