@@ -1,5 +1,5 @@
 # pokemon-wiki-cli-project
-Hi👋! Welcome to my very first cli data project🎉! This app provides a CLI to review the information of 20 pokemons including their names, heights, moves, etc.
+Hi👋! Welcome to my very first cli data project🎉! In this directory, this app provides a CLI to review the information of 20 pokemons including their names, heights, moves, etc.
 
 # Installation
 $ bundle install
