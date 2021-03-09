@@ -83,7 +83,7 @@ class Cli
             puts "-------------------------------------------------------------------------------".colorize(:green)
       end   
     
-
+  # This is my first design of more user selection.
   def another_selection
   puts "Would you like to review an another pokemon? (yes/no)"
   input = gets.chomp
@@ -98,9 +98,10 @@ class Cli
   end
 end
 
+# This is my second try to add another functionality to the cli - view all saved items   
 def more_selection
   puts "What else would you like to do?".colorize(:magenta)
-    sleep(0.5)
+    sleep(1)
   puts"1. learn about another pokemon\n2. review all the pokemon you have learned\n3. quit".colorize(:green)
   input = gets.chomp
   case input
@@ -108,11 +109,12 @@ def more_selection
       self.start
     when "2"
       Pokemon.display_pokemon
+     sleep(1)
       self.more_selection
     when "3"
-      puts "Goodbye".colorize(:cyan)  
+      puts "Have a good day~!\nSee you next time!".colorize(:cyan)  
     else
-      puts "Please type in a valid input: yes or no:".colorize(:red)
+      puts "Please type in a valid input - 1, 2 or 3:".colorize(:red)
     self.more_selection
   end
 end
