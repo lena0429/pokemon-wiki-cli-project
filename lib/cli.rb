@@ -6,7 +6,8 @@ class Cli
    @@topics = []
 
   def start
-    puts "Which of the following pokemon do you want to check? Please enter 1-30:".colorize(:green)
+    puts "Which of the following Pokémon would you like to learn about? Please enter 1-30:".colorize(:green)
+      sleep(1)
     self.display_topics
     input = gets.chomp
     index = input_to_index(input)
@@ -20,7 +21,7 @@ class Cli
     api = Api.new(query)
     pokemon = api.create_pokemon
     self.display_pokemon(pokemon)
-    self.another_selection
+    self.more_selection
   end
 
 
@@ -88,14 +89,31 @@ class Cli
   input = gets.chomp
   case input
   when "yes"
-    Pokemon.clear
     self.start
   when "no"
-    puts "Goodbye!"
+    puts "Goodbye!".colorize(:cyan) 
   else
     puts "Please type in a valid input: yes or no:".colorize(:red)
     self.another_selection
+  end
+end
 
+def more_selection
+  puts "What else would you like to do?".colorize(:magenta)
+    sleep(0.5)
+  puts"1. learn about another pokemon\n2. review all the pokemon you have learned\n3. quit".colorize(:green)
+  input = gets.chomp
+  case input
+    when "1"
+      self.start
+    when "2"
+      Pokemon.display_pokemon
+      self.more_selection
+    when "3"
+      puts "Goodbye".colorize(:cyan)  
+    else
+      puts "Please type in a valid input: yes or no:".colorize(:red)
+    self.more_selection
   end
 end
 

@@ -6,7 +6,7 @@ Bundler.require
 require_relative '../environment.rb'
 
 Cli.logo
-
-puts "Welcome to Pokemon Wiki App~!".colorize(:magenta)
-
+sleep(1)
+puts "Welcome to my Pokémon Wiki App~!".colorize(:magenta)
+sleep(1)
 Cli.new.start
