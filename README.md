@@ -1,11 +1,11 @@
 # pokemon-wiki-cli-project
-Hi👋! Welcome to my very first cli data project🎉! In this directory, this app provides a CLI to review the information of 20 pokemons including their names, heights, moves, etc.
+Hi👋! Welcome to my very first cli data project🎉! In this directory, this app provides a CLI to access the data of 30 pokemons fetched from an Pokemon api. It also auto saves the Pokemon the user has just viewed and allows the user to view all the items he or she has learned about. 
 
 # Installation
 $ bundle install
 
 # Usage
-Type the below and follow the on screen prompts.
+In the directory, simply type the below and follow the on screen prompts.
 
 $ ruby bin/run
 
