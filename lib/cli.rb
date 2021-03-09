@@ -61,7 +61,7 @@ class Cli
   def self.topics
     all_names = Api.fetch_all_names_from_index_page
     @@topics = all_names
-    @@topics
+    @@topics.uniq
   end
 
   def display_topics 
