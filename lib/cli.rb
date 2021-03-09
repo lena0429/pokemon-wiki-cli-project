@@ -1,24 +1,25 @@
 require 'colorize'
+require 'pry'
 
 class Cli
 
-  @@topics = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartortle", "blastoise", "caterpie", "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate"]
+   @@topics = []
 
   def start
-    puts "Which of the following pokemon do you want to check? Please enter 1-20:".colorize(:green)
+    puts "Which of the following pokemon do you want to check? Please enter 1-30:".colorize(:green)
     self.display_topics
     input = gets.chomp
     index = input_to_index(input)
 
-    if !index.between?(0,19)
-      puts "Please select a number between 1 and 20:".colorize(:red)
+    if !index.between?(0,29)
+      puts "Please select a number between 1 and 30:".colorize(:red)
       self.start
     end
 
     query = Cli.topics[index]
     api = Api.new(query)
-    api.create_pokemon
-    Pokemon.display_pokemon
+    pokemon = api.create_pokemon
+    self.display_pokemon(pokemon)
     self.another_selection
   end
 
@@ -57,12 +58,30 @@ class Cli
 
 
   def self.topics
+    all_names = Api.fetch_all_names_from_index_page
+    @@topics = all_names
     @@topics
   end
 
   def display_topics 
    Cli.topics.each_with_index { |topic, index| puts "#{index + 1}. #{topic.capitalize}".colorize(:cyan) }
   end
+
+  def display_pokemon(pokemon)
+    puts "#{pokemon[0][:name].upcase}".colorize(:magenta)
+            puts "  height:".colorize(:light_blue) + " #{pokemon[0][:height]}"
+            puts "  weight:".colorize(:light_blue) + " #{pokemon[0][:weight]}"
+            puts "  id:".colorize(:light_blue) + " #{pokemon[0][:id]}"
+            puts "  order:".colorize(:light_blue) + " #{pokemon[0][:order]}"
+            puts "  base_experience:".colorize(:light_blue) + " #{pokemon[0][:base_experience]}"
+            puts "  moves:".colorize(:light_blue) + " #{pokemon[0][:moves].join(", ")}"
+            puts "  abilities:".colorize(:light_blue) + " #{pokemon[0][:abilities].join(", ")}"
+            puts "  forms:".colorize(:light_blue) + " #{pokemon[0][:forms].join(", ")}"
+            puts "  held_items:".colorize(:light_blue) + " #{pokemon[0][:held_items].join(", ")}"
+            puts "  location_area_encounters:".colorize(:light_blue) + " #{pokemon[0][:location_area_encounters]}"
+            puts "-------------------------------------------------------------------------------".colorize(:green)
+      end   
+    
 
   def another_selection
   puts "Would you like to review an another pokemon? (yes/no)"
