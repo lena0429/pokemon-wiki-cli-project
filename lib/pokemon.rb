@@ -14,6 +14,18 @@ class Pokemon
         @@all
     end
 
+
+    def self.find_or_create_pokemon_by_query(query)
+        the_pokemon = Pokemon.all.detect { |pokemon| pokemon.name == query }
+        if  the_pokemon
+            the_pokemon
+        else
+          api = Api.new(query)
+          new_pokemon = api.create_pokemon    
+          new_pokemon
+        end
+      end    
+
     def self.display_pokemon
         self.all.each do |pokemon|
             puts "#{pokemon.name.upcase}".colorize(:magenta)
@@ -29,10 +41,6 @@ class Pokemon
             puts "  location_area_encounters:".colorize(:light_blue) + " #{pokemon.location_area_encounters}"
             puts "-------------------------------------------------------------------------------".colorize(:green)
     end
-end
-
-def self.clear
-    @@all.clear
 end
 
 
