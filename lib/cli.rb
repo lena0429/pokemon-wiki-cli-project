@@ -82,22 +82,41 @@ class Cli
             puts "-------------------------------------------------------------------------------".colorize(:green)
       end   
       
-def more_selection
-  puts "What else would you like to do?".colorize(:magenta)
-  puts"1. learn about another Pokémon\n2. review all the Pokémon you have learned\n3. quit".colorize(:green)
-  input = gets.chomp
-  case input
-    when "1"
-      self.start
-    when "2"
-      Pokemon.display_pokemon
-      self.more_selection
-    when "3"
-      puts "Have a good day~!\nSee you next time!".colorize(:cyan)  
-    else
-      puts "Please type in a valid input - 1, 2 or 3:".colorize(:red)
-    self.more_selection
+  def display_all_pokemon
+    Pokemon.all.collect do |pokemon|
+      puts "#{pokemon.name.upcase}".colorize(:magenta)
+            puts "  height:".colorize(:light_blue) + " #{pokemon.height}"
+            puts "  weight:".colorize(:light_blue) + " #{pokemon.weight}"
+            puts "  id:".colorize(:light_blue) + " #{pokemon.id}"
+            puts "  order:".colorize(:light_blue) + " #{pokemon.order}"
+            puts "  base_experience:".colorize(:light_blue) + " #{pokemon.base_experience}"
+            puts "  moves:".colorize(:light_blue) + " #{pokemon.moves.join(", ")}"
+            puts "  abilities:".colorize(:light_blue) + " #{pokemon.abilities.join(", ")}"
+            puts "  forms:".colorize(:light_blue) + " #{pokemon.forms.join(", ")}"
+            puts "  held_items:".colorize(:light_blue) + " #{pokemon.held_items.join(", ")}"
+            puts "  location_area_encounters:".colorize(:light_blue) + " #{pokemon.location_area_encounters}"
+            puts "-------------------------------------------------------------------------------".colorize(:green)
+      end   
+    end
+
+
+  def more_selection
+    puts "What else would you like to do?".colorize(:magenta)
+    puts"1. learn about another Pokémon\n2. review all the Pokémon you have learned\n3. quit".colorize(:green)
+    input = gets.strip
+    case input
+      when "1"
+        self.start
+      when "2"
+        self.display_all_pokemon
+        self.more_selection
+      when "3"
+        puts "Have a good day~!\nSee you next time!".colorize(:cyan)  
+      else
+        puts "Please type in a valid input - 1, 2 or 3:".colorize(:red)
+        self.more_selection
+      end
   end
-end
 
 end
+
