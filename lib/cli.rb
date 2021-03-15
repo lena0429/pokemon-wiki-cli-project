@@ -83,7 +83,7 @@ class Cli
       end   
       
   def display_all_pokemon
-    Pokemon.all.collect do |pokemon|
+    Pokemon.all.each do |pokemon|
       puts "#{pokemon.name.upcase}".colorize(:magenta)
             puts "  height:".colorize(:light_blue) + " #{pokemon.height}"
             puts "  weight:".colorize(:light_blue) + " #{pokemon.weight}"
