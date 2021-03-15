@@ -16,8 +16,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/lena01
 The API used in this project: https://pokeapi.co/api/v2/pokemon/
 The ASCII used in this project is from: http://www.ascii-art.de/
 
-#License
+# License
 The project is available as open source under the terms of the GNU General Public License v3.0.
 
-Code of Conduct
-Everyone interacting in the CLIDataGemProjectCam project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+# Code of Conduct
+Everyone interacting in this project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
